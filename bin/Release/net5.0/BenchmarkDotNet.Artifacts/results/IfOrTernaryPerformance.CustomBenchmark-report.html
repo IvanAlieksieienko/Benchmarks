@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>IfOrTernaryPerformance.CustomBenchmark-20210704-113252</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.0, OS=macOS Big Sur 11.4 (20F71) [Darwin 20.5.0]
+Apple M1 2.40GHz, 1 CPU, 8 logical and 8 physical cores
+.NET SDK=5.0.301
+  [Host]   : .NET 5.0.7 (5.0.721.25508), X64 RyuJIT  [AttachedDebugger]
+  .NET 5.0 : .NET 5.0.7 (5.0.721.25508), X64 RyuJIT
+</code></pre>
+<pre><code>Job=.NET 5.0  Runtime=.NET 5.0  InvocationCount=1  
+UnrollFactor=1  
+</code></pre>
+
+<table>
+<thead><tr><th>    Method</th><th>ListSizes</th><th>  Mean</th><th>Error</th><th>StdDev</th>
+</tr>
+</thead><tbody><tr><td>IfCondition</td><td>1000</td><td>4.850 &mu;s</td><td>0.0982 &mu;s</td><td>0.1206 &mu;s</td>
+</tr><tr><td>TernaryCondition</td><td>1000</td><td>4.889 &mu;s</td><td>0.1021 &mu;s</td><td>0.0955 &mu;s</td>
+</tr><tr><td>IfCondition</td><td>10000</td><td>47.054 &mu;s</td><td>0.8672 &mu;s</td><td>0.8111 &mu;s</td>
+</tr><tr><td>TernaryCondition</td><td>10000</td><td>46.812 &mu;s</td><td>0.7336 &mu;s</td><td>0.5728 &mu;s</td>
+</tr><tr><td>IfCondition</td><td>100000</td><td>479.152 &mu;s</td><td>0.6400 &mu;s</td><td>0.4997 &mu;s</td>
+</tr><tr><td>TernaryCondition</td><td>100000</td><td>444.997 &mu;s</td><td>2.2702 &mu;s</td><td>1.7724 &mu;s</td>
+</tr><tr><td>IfCondition</td><td>1000000</td><td>4,319.640 &mu;s</td><td>84.7061 &mu;s</td><td>113.0802 &mu;s</td>
+</tr><tr><td>TernaryCondition</td><td>1000000</td><td>4,324.334 &mu;s</td><td>86.1745 &mu;s</td><td>136.6820 &mu;s</td>
+</tr></tbody></table>
+</body>
+</html>
